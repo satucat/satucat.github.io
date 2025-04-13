@@ -3,6 +3,14 @@
 <head>
   <title>Saturn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+    // Redirect mobile/tablet users
+    if (/Mobi|Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      window.location.href = "https://satu.ftp.sh/unsupported.html";
+    }
+  </script>
+
   <style>
     .barcode-space {
       text-align: right;
