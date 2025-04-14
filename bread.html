@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bread Cheat - IRL Aimbot</title>
   <style>
     html, body {
@@ -22,42 +23,52 @@
       height: 100%;
       overflow: hidden;
       box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .title {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 1.6em;
     }
 
     .terminal-box {
       border: 1px solid #00ff88;
-      padding: 10px 20px;
-      width: 80vw;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
       height: 50vh;
       background-color: rgba(0, 0, 0, 0.8);
       margin-bottom: 10px;
       white-space: pre-wrap;
-      z-index: 2;
-      font-size: 0.9em;
+      font-size: 1.1em;
       overflow: auto;
+      box-sizing: border-box;
     }
 
     .console-log {
-      width: 80vw;
-      max-height: 20vh;
+      width: 90%;
+      max-width: 500px;
+      height: 20vh;
       border: 1px solid #00ff88;
-      padding: 10px;
+      padding: 15px;
       background-color: rgba(0, 0, 0, 0.9);
       white-space: pre-wrap;
-      font-size: 0.85em;
-      z-index: 1;
+      font-size: 1em;
       overflow-y: auto;
       overflow-x: hidden;
+      box-sizing: border-box;
     }
 
     .checkbox {
       appearance: none;
       border: 2px solid #00ff88;
       background: black;
-      width: 20px;
-      height: 20px;
+      width: 30px;
+      height: 30px;
       vertical-align: middle;
-      margin-right: 8px;
+      margin-right: 12px;
       cursor: pointer;
       position: relative;
     }
@@ -69,35 +80,29 @@
     .checkbox:checked::before {
       content: "✔";
       position: absolute;
-      top: 0;
-      left: 3px;
-      font-size: 16px;
+      top: -4px;
+      left: 5px;
+      font-size: 20px;
       color: black;
     }
 
     label {
       display: block;
-      margin: 2px 0;
+      margin: 5px 0;
       cursor: pointer;
+      font-size: 1.1em;
     }
 
     .section-title {
-      margin-top: 1em;
+      margin-top: 1.5em;
       text-decoration: underline;
-    }
-
-    .title {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 10px;
-      margin-bottom: 1em;
-      font-size: 1.5em;
+      font-size: 1.3em;
     }
 
     .bread {
       position: fixed;
       top: -50px;
-      font-size: 24px;
+      font-size: 30px;
       animation: fall linear;
       z-index: 0;
     }
@@ -112,11 +117,44 @@
         opacity: 0;
       }
     }
+
+    /* Adjustments for mobile devices */
+    @media (max-width: 768px) {
+      .title {
+        font-size: 1.4em;
+      }
+
+      .terminal-box,
+      .console-log {
+        width: 95%;
+        font-size: 1.1em;
+        height: 45vh;
+      }
+
+      label {
+        font-size: 1.2em;
+      }
+
+      .bread {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .terminal-box,
+      .console-log {
+        height: 35vh;
+      }
+
+      .bread {
+        font-size: 26px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="main-container">
-    <div class="title">==== [🥖 Bread Cheat - Cheats IRL] ====</div>
+    <div class="title">==== [🥖 Bread Cheat UI - IRL Aimbot] ====</div>
 
     <div class="terminal-box">
       <div class="section-title">[🎯 Aimbot Settings]</div>
