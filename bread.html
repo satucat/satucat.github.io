@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bread Cheat - IRL Aimbot</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black;
+      color: #00ff88;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+
+    .terminal-box {
+      border: 1px solid #00ff88;
+      padding: 10px 20px;
+      width: 80vw;
+      height: 50vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+      z-index: 2;
+      font-size: 0.9em;
+      overflow: auto;
+    }
+
+    .console-log {
+      width: 80vw;
+      max-height: 20vh;
+      border: 1px solid #00ff88;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.9);
+      white-space: pre-wrap;
+      font-size: 0.85em;
+      z-index: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .checkbox {
+      appearance: none;
+      border: 2px solid #00ff88;
+      background: black;
+      width: 20px;
+      height: 20px;
+      vertical-align: middle;
+      margin-right: 8px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .checkbox:checked {
+      background-color: #00ff88;
+    }
+
+    .checkbox:checked::before {
+      content: "✔";
+      position: absolute;
+      top: 0;
+      left: 3px;
+      font-size: 16px;
+      color: black;
+    }
+
+    label {
+      display: block;
+      margin: 2px 0;
+      cursor: pointer;
+    }
+
+    .section-title {
+      margin-top: 1em;
+      text-decoration: underline;
+    }
+
+    .title {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 1em;
+      font-size: 1.5em;
+    }
+
+    .bread {
+      position: fixed;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="title">==== [🥖 Bread Cheat - Cheats IRL] ====</div>
+
+    <div class="terminal-box">
+      <div class="section-title">[🎯 Aimbot Settings]</div>
+      <label><input type="checkbox" class="checkbox" data-name="Enable Bread Aimbot"> Enable Bread Aimbot</label>
+      <label><input type="checkbox" class="checkbox" data-name="Cart Bounce Compensation"> Cart Bounce Compensation</label>
+      <label><input type="checkbox" class="checkbox" data-name="Auto-lock on nearest cart"> Auto-lock on nearest cart</label>
+      <label><input type="checkbox" class="checkbox" data-name="Throw Strength Assist"> Throw Strength Assist</label>
+      <label><input type="checkbox" class="checkbox" data-name="Bone aim: Head / Hands / Cart"> Bone aim: Head / Hands / Cart</label>
+
+      <div class="section-title">[🧠 Misc Features]</div>
+      <label><input type="checkbox" class="checkbox" data-name="Smart Gluten AI"> Smart Gluten AI</label>
+      <label><input type="checkbox" class="checkbox" data-name="Crumb Trail ESP"> Crumb Trail ESP</label>
+      <label><input type="checkbox" class="checkbox" data-name="Loaf Magnetism Protocol"> Loaf Magnetism Protocol</label>
+      <label><input type="checkbox" class="checkbox" data-name="Crosswind Baguette Correction"> Crosswind Baguette Correction</label>
+      <label><input type="checkbox" class="checkbox" data-name="HyperYeast Injector"> HyperYeast Injector</label>
+
+      <div class="section-title">[🧟‍♂️ Walmart Mode]</div>
+      <label><input type="checkbox" class="checkbox" data-name="Price Scanner Jammer"> Price Scanner Jammer</label>
+      <label><input type="checkbox" class="checkbox" data-name="Auto Refund Exploit"> Auto Refund Exploit</label>
+      <label><input type="checkbox" class="checkbox" data-name="Inventory Ghost Mode"> Inventory Ghost Mode</label>
+      <label><input type="checkbox" class="checkbox" data-name="Coupon Overloader"> Coupon Overloader</label>
+      <label><input type="checkbox" class="checkbox" data-name="Employee Path Predictor"> Employee Path Predictor</label>
+    </div>
+
+    <div class="console-log" id="consoleLog">
+      > BreadCheat v1.0 loaded...
+      > Injecting YeastEngine v3.6...
+      > Thermal Sourdough Tracking active.
+    </div>
+  </div>
+
+  <script>
+    const logBox = document.getElementById('consoleLog');
+    const messages = [
+      name => `> [OK] ${name} initialized...`,
+      name => `> [DEBUG] ${name} toggled ON.`,
+      name => `> [SYSTEM] ${name} executing unstable syscall...`,
+      name => `> ${name} is breaded and ready.`,
+      name => `> ${name} was baked into RAM.`,
+      name => `> ${name} DISABLED - gluten sync lost.`
+    ];
+
+    function appendLog(msg) {
+      logBox.textContent += `\n${msg}`;
+      logBox.scrollTop = logBox.scrollHeight;
+    }
+
+    document.querySelectorAll('.checkbox').forEach(cb => {
+      cb.addEventListener('change', () => {
+        const name = cb.dataset.name || 'Unknown Module';
+        const msg = cb.checked ? messages[Math.floor(Math.random() * 5)](name) : messages[5](name);
+        appendLog(msg);
+      });
+    });
+
+    function dropBread() {
+      const bread = document.createElement('div');
+      bread.className = 'bread';
+      bread.textContent = '🥖';
+      bread.style.left = Math.random() * window.innerWidth + 'px';
+      bread.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      document.body.appendChild(bread);
+      setTimeout(() => bread.remove(), 4000);
+    }
+    setInterval(dropBread, 200);
+  </script>
+</body>
+</html>
