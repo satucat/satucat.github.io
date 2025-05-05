@@ -7,7 +7,7 @@
   <script>
     // Redirect mobile/tablet users
     if (/Mobi|Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-      window.location.href = "https://n3ko.hs.vc/unsupported.html";
+      window.location.href = "https://n3k0.hs.vc/unsupported.html";
     }
   </script>
 
@@ -16,22 +16,22 @@
       text-align: right;
       font-size: 20px;
       font-weight: bold;
-      color: #FF88CC;
+      color: #888;
       width: 1000px;
       margin: 9px auto;
-      text-shadow: 2px 0px #880066;
+      text-shadow: 2px 0px #222;
     }
     .title-space {
       font-size: 40px;
       font-weight: bold;
-      color: white;
+      color: #ddd;
       width: 980px;
       margin: auto 0px;
       height: 50px;
-      text-shadow: 4px 4px #550044;
-      background-color: #CC0099;
+      text-shadow: 4px 4px #222;
+      background-color: #333;
       padding: 0px 10px 20px;
-      box-shadow: inset 3px 3px #880066, inset 0px -8px #550044 ,4px 4px #550044 , -3px -3px #000;
+      box-shadow: inset 3px 3px #222, inset 0px -8px #111 ,4px 4px #111 , -3px -3px #000;
     }
     .spoiler {
       background-color: #222;
@@ -45,27 +45,35 @@
     .centre {
       width: 1000px;
       margin: 50px auto;
-      box-shadow: -7px -7px #880066;
+      box-shadow: -7px -7px #222;
     }
     .content {
       background: #111;
-      color: #eee;
+      color: #ddd;
       padding: 0px 40px 40px 10px;
-      box-shadow: inset 3px 3px #880066, inset -4px -4px #CC0099 ,4px 4px #550044 , -3px -3px #000;
-      border: 8px solid #880066;
+      box-shadow: inset 3px 3px #222, inset -4px -4px #333 ,4px 4px #111 , -3px -3px #000;
+      border: 8px solid #222;
     }
-    .diamond-pattern {
+    #video-container {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: -2;
-      background-image: linear-gradient(45deg, #FF66CC 25%, transparent 25%, transparent 75%, #FF66CC 75%, #FF66CC),
-                        linear-gradient(45deg, #FF66CC 25%, transparent 25%, transparent 75%, #FF66CC 75%, #FF66CC);
-      background-size: 40px 40px;
-      background-position: 0 0, 20px 20px;
-      animation: marquee 2s linear infinite;
+      overflow: hidden;
+    }
+    #video-background {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      opacity: 0.3;
+      object-fit: cover;
     }
     @keyframes marquee {
       0% {
@@ -87,7 +95,7 @@
       font-size: 30px;
       font-weight: bold;
       margin-left: 1.0em;
-      color: #FF88DD;
+      color: #aaa;
     }
     h {
       padding: 0;
@@ -119,7 +127,7 @@
       font-size: 24px;
       font-weight: bold;
       color: white;
-      text-shadow: 2px 2px 4px rgba(255, 102, 204, 0.7);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
       cursor: pointer;
     }
     #blur-overlay.fade-out {
@@ -135,10 +143,10 @@
     }
     
     a {
-      color: #FF88DD;
+      color: #aaa;
     }
     a:hover {
-      color: #FF66CC;
+      color: #888;
     }
   </style>
 </head>
@@ -149,10 +157,15 @@
   </div>
 
   <!-- Audio for Sound (with loop attribute) -->
-  <audio id="enter-sound" src="https://github.com/satucat/satucat.github.io/raw/refs/heads/main/lease.mp3" loop></audio>
+  <audio id="enter-sound" src="https://github.com/satucat/satucat.github.io/raw/refs/heads/main/vtoa.mp3" loop></audio>
 
-  <!-- Pattern Background -->
-  <div class="diamond-pattern"></div>
+  <!-- Video Background Container -->
+  <div id="video-container">
+    <video id="video-background" autoplay muted loop playsinline>
+      <source src="https://n3ko.hs.vc/night.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
   <div class="centre">
     <div class="title-space"><br><br>Saturn</div>
@@ -160,13 +173,13 @@
       <br>
       <h>//&lt;website&gt;</h>
       <br>
-      <p>If you're using Rectify11, text may not render correctly</p>
-      <p>I am a person who likes to do random shit on the internet and mess with tech (idk why)</p>
+      <p>I am a person. Thought that was obvious.</p>
+      <p>I like to mess with tech and do random things.</p>
       <br>
       <h>//&lt;socials&gt;</h>
       <p>Discord - n3ko.me0w</p>
       <p>TikTok: - <a href="https://www.tiktok.com/@satucatwhy" target="_blank">@satucatwhy</a></p>
-      <p>YouTube - <a href="https://www.youtube.com/@%E4%B8%80-%E4%BA%8C%E4%B8%80-%E4%BA%8C%E4%B8%80" target="_blank">@一-二一-二一</a></p>
+      <p>YouTube, use link, not posting - <a href="https://www.youtube.com/@%E4%B8%80-%E4%BA%8C%E4%B8%80-%E4%BA%8C%E4%B8%80" target="_blank">@一-二一-二一</a></p>
       <br>
       <h>//&lt;projects&gt;</h>
       <p>Recycle Bin Themes // Fork of Recycle Bin Themes, with more themes.</p>
@@ -184,6 +197,25 @@
       enterSound.play();
       blurOverlay.classList.add('fade-out');
     });
+
+    // Ensure video fills screen on resize
+    window.addEventListener('resize', function() {
+      const video = document.getElementById('video-background');
+      const container = document.getElementById('video-container');
+      const containerRatio = container.offsetWidth / container.offsetHeight;
+      const videoRatio = video.videoWidth / video.videoHeight;
+      
+      if (containerRatio > videoRatio) {
+        video.style.width = '100%';
+        video.style.height = 'auto';
+      } else {
+        video.style.width = 'auto';
+        video.style.height = '100%';
+      }
+    });
+
+    // Trigger initial resize
+    window.dispatchEvent(new Event('resize'));
   </script>
 </body>
 </html>
