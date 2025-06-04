@@ -1,0 +1,1 @@
+data:text/html,<html%20marginwidth="0"%20marginheight="0"%20style="margin:0;%20height:100%25">%0D%0A%20%20<body%20style="margin:0;%20height:100%25">%0D%0A%20%20%20%20<iframe%20src="https://donut.chickenjockey.dev"%20scrolling="no"%20frameborder="0"%20width="100%25"%20height="100%25"></iframe>%0D%0A%20%20</body>%0D%0A</html>%0D%0A
